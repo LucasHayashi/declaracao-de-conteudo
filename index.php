@@ -30,14 +30,14 @@ $dadosOption = array(
                         </div>
                         <div class="col-md-4">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control documento" name="documento_<?= $key ?>" placeholder="454.999.888-78" required>
+                                <input type="text" class="form-control documento" name="documento_<?= $key ?>" data-tipo="<?= $key ?>" placeholder="454.999.888-78" required>
                                 <label for="documento_<?= $key ?>" class="form-label">CPF/CNPJ</label>
                                 <div class="invalid-feedback">Informe o CPF ou CNPJ do <?= $key ?>.</div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control cep" name="cep_<?= $key ?>" data-tipo="<?= $key ?>" placeholder="17032-520" required>
+                                <input type="text" class="form-control cep" name="cep_<?= $key ?>" data-tipo="<?= $key ?>" placeholder="17032-500" required>
                                 <label for="cep_<?= $key ?>" class="form-label">CEP</label>
                                 <div class="invalid-feedback">Informe o CEP do <?= $key ?>.</div>
                             </div>
@@ -104,7 +104,7 @@ $dadosOption = array(
                             </div>
                             <div class="col-2 col-md-1">
                                 <a href="#" class="link-success adicionar-conteudo">
-                                    <i class="bi bi-plus-circle" style="font-size: 2rem;"></i>
+                                    <i class="bi bi-plus-square-fill" style="font-size: 2rem;"></i>
                                 </a>
                             </div>
                         </div>

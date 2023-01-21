@@ -77,9 +77,11 @@ $conteudoTable->closeRowHeader();
 
 $quantidade_total = 0;
 $valor_total = 0;
+$countItem = 0;
 foreach ($data['conteudo'] as $key => $value) {
+    $countItem++;
     $conteudoTable->startRowBody();
-    $conteudoTable->addTableData($key, 1, 'center');
+    $conteudoTable->addTableData($countItem, 1, 'center');
     $conteudoTable->addTableData($value['name'], 7);
     $conteudoTable->addTableData($value['quantidade'], 1, 'center');
     $conteudoTable->addTableData($value['valor'],1, 'center');
