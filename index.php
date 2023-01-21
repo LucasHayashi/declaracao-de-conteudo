@@ -1,5 +1,5 @@
 <?php
-$title = "Declaração de conteúdo";
+$title = "Gerar Declaração de conteúdo";
 include_once("layouts/header.php");
 
 $dadosOption = array(
@@ -14,8 +14,12 @@ $dadosOption = array(
 
 <h1 id="main-title" class="mt-2">Declaração de conteúdo</h1>
 
-<div class="card mx-auto">
+<div class="card mx-auto col-md-8">
     <div class="card-body">
+        <div class="alert alert-warning d-flex align-items-center">
+            <i class="bi bi-info-square-fill me-2"></i>
+            <div>Todos os campos são obrigatórios</div>    
+        </div>
         <form action="gerar-declaracao.php" method="post" target="_blank" class="row d-flex justify-content-center needs-validation" novalidate autocomplete="off">
             <div class="col-md-12">
                 <?php foreach ($dadosOption as $key => $value) : ?>
@@ -71,7 +75,7 @@ $dadosOption = array(
                     <h3 class="form-section-title">Data do envio</h3>
                     <div class="col-md-12">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control datepicker" name="dt_envio" required placeholder="18/01/2023">
+                            <input type="text" class="form-control datepicker date" name="dt_envio" required placeholder="18/01/2023">
                             <label for="dt_envio" class="form-label">Data</label>
                             <div class="invalid-feedback">Informe a data do envio</div>
                         </div>
@@ -83,7 +87,7 @@ $dadosOption = array(
                         <div class="conteudo row" data-index="1">
                             <div class="col-md-7">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" name="conteudo[1][name]" id="conteudo_1" placeholder="Apple iPhone 14 Pro Max (256 GB)" required>
+                                    <input type="text" class="form-control" name="conteudo[1][name]" id="conteudo_1" placeholder="Apple iPhone 14 Pro Max (256 GB)" maxlength="160" required>
                                     <label for="conteudo_1">Conteúdo</label>
                                     <div class="invalid-feedback">Informe o conteúdo da declaração.</div>
                                 </div>
@@ -91,13 +95,13 @@ $dadosOption = array(
                             <div class="col-5 col-md-2">
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control quantidade" name="conteudo[1][quantidade]" id="quantidade_1" placeholder="8" required>
-                                    <label for="quantidade_1">Quantidade</label>
+                                    <label for="quantidade_1">Quant.</label>
                                     <div class="invalid-feedback">Informe a quantidade do conteúdo.</div>
                                 </div>
                             </div>
                             <div class="col-5 col-md-2">
                                 <div class="form-floating">
-                                    <input type="number" class="form-control" name="conteudo[1][valor]" id="valor_1" placeholder="10800,00" step="0.01" required>
+                                    <input type="number" class="form-control" name="conteudo[1][valor]" id="valor_1" placeholder="10800,00" min="0.00" step="0.01" required>
                                     <label for="valor_1">Valor</label>
                                     <div class="invalid-feedback">Informe o valor do conteúdo.</div>
                                 </div>
@@ -111,8 +115,7 @@ $dadosOption = array(
                     </div>
                     <div class="row">
                         <div class="col-md-5">
-                            <button type="submit" class="btn btn-success" id="gerar-declaracao">Gerar declaração
-                            </button>
+                            <button type="submit" class="btn btn-success" id="gerar-declaracao">Gerar declaração</button>
                         </div>
                     </div>
                 </div>
@@ -122,7 +125,7 @@ $dadosOption = array(
 </div>
 
 <p class="text-muted text-center">
-        <a href="https://github.com/LucasHayashi" class="link-secondary text-decoration-none p-3" target="_blank">By Lucas Hayashi</a>
+        <a href="https://github.com/LucasHayashi" class="link-secondary text-decoration-none p-3" target="_blank">2023 - Lucas Hayashi</a>
     </p>
 
 <?php include_once("layouts/footer.php") ?>

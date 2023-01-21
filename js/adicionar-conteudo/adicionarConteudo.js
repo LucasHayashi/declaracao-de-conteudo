@@ -1,17 +1,9 @@
 export const adicionarConteudo = function (e) {
     e.preventDefault();
 
-    let conteudoContainer = $(".conteudo-container");
-    let ultimoConteudo = $(".conteudo").last();
-    let ultimoBtnAdd = ultimoConteudo.find(".adicionar-conteudo");
-    let ultimoBtnAddIcon = ultimoBtnAdd.find("i");
-
-    let index = ultimoConteudo.data("index") + 1;
-
-    ultimoBtnAdd.removeClass("link-success adicionar-conteudo");
-    ultimoBtnAdd.addClass("link-danger remover-conteudo");
-    ultimoBtnAddIcon.removeClass("bi-plus-square-fill");
-    ultimoBtnAddIcon.addClass("bi-x-square-fill");
+    const conteudoContainer = $(".conteudo-container");
+    const ultimoConteudo = $(".conteudo").last();
+    const index = ultimoConteudo.data("index") + 1;
 
     let html = `<div class="conteudo row" data-index="${index}">
                     <div class="col-md-7">
@@ -39,13 +31,13 @@ export const adicionarConteudo = function (e) {
                         </div>
                     </div>
                     <div class="col-2 col-md-1">
-                        <a href="#" class="link-success adicionar-conteudo">
-                            <i class="bi bi-plus-square-fill" style="font-size: 2rem;"></i>
+                        <a href="#" class="link-danger remover-conteudo">
+                            <i class="bi bi-x-square-fill" style="font-size: 2rem;"></i>
                         </a>
                     </div>
                 </div>`;
 
     conteudoContainer.append(html);
 
-    $("[data-index="+index+"]").get(0).scrollIntoView(); // Navega até o elemento criado
+    $("[data-index=" + index + "]").get(0).scrollIntoView(); // Navega até o elemento criado
 };
