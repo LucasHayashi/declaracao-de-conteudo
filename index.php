@@ -12,13 +12,13 @@ $dadosOption = array(
 );
 ?>
 
-<h1 id="main-title" class="mt-2">Declaração de conteúdo</h1>
+<h1 id="main-title" class="mt-2">Gerador de Declaração de Conteúdo</h1>
 
 <div class="card mx-auto col-md-8">
     <div class="card-body">
-        <div class="alert alert-warning d-flex align-items-center">
+        <div class="alert alert-primary d-flex align-items-center">
             <i class="bi bi-info-square-fill me-2"></i>
-            <div>Todos os campos são obrigatórios</div>    
+            <div>Preencha todos os campos com <span class="text-danger">*</span></div>
         </div>
         <form action="gerar-declaracao.php" method="post" target="_blank" class="row d-flex justify-content-center needs-validation" novalidate autocomplete="off">
             <div class="col-md-12">
@@ -28,28 +28,28 @@ $dadosOption = array(
                         <div class="col-md-8">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" name="nome_<?= $key ?>" placeholder="Lucas Felipe" required>
-                                <label for="nome_<?= $key ?>" class="form-label">Nome</label>
+                                <label for="nome_<?= $key ?>" class="form-label">Nome*</label>
                                 <div class="invalid-feedback">Informe o nome do <?= $key ?>.</div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control documento" name="documento_<?= $key ?>" data-tipo="<?= $key ?>" placeholder="454.999.888-78" required>
-                                <label for="documento_<?= $key ?>" class="form-label">CPF/CNPJ</label>
+                                <label for="documento_<?= $key ?>" class="form-label">CPF/CNPJ*</label>
                                 <div class="invalid-feedback">Informe o CPF ou CNPJ do <?= $key ?>.</div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control cep" name="cep_<?= $key ?>" data-tipo="<?= $key ?>" placeholder="17032-500" required>
-                                <label for="cep_<?= $key ?>" class="form-label">CEP</label>
+                                <label for="cep_<?= $key ?>" class="form-label">CEP*</label>
                                 <div class="invalid-feedback">Informe o CEP do <?= $key ?>.</div>
                             </div>
                         </div>
                         <div class="col-md-5">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" name="cidade_<?= $key ?>" placeholder="Bauru" required>
-                                <label for="cidade_<?= $key ?>" class="form-label">Cidade</label>
+                                <label for="cidade_<?= $key ?>" class="form-label">Cidade*</label>
                                 <div class="invalid-feedback">Informe a cidade do <?= $key ?>.</div>
                             </div>
                         </div>
@@ -58,14 +58,14 @@ $dadosOption = array(
                                 <select name="uf_<?= $key ?>" name="uf_<?= $key ?>" class="form-select estados" required>
                                     <option value="">--</option>
                                 </select>
-                                <label for="uf_<?= $key ?>" class="form-label">Estado</label>
+                                <label for="uf_<?= $key ?>" class="form-label">Estado*</label>
                                 <div class="invalid-feedback">Informe o estado do <?= $key ?>.</div>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" name="endereco_<?= $key ?>" minlength="9" required placeholder="Rua. Teste 123">
-                                <label for="endereco_<?= $key ?>" class="form-label">Endereço</label>
+                                <label for="endereco_<?= $key ?>" class="form-label">Endereço*</label>
                                 <div class="invalid-feedback">Informe o endereço do <?= $key ?>.</div>
                             </div>
                         </div>
@@ -76,8 +76,17 @@ $dadosOption = array(
                     <div class="col-md-12">
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control datepicker date" name="dt_envio" required placeholder="18/01/2023">
-                            <label for="dt_envio" class="form-label">Data</label>
+                            <label for="dt_envio" class="form-label">Data*</label>
                             <div class="invalid-feedback">Informe a data do envio</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <h3 class="form-section-title">Código de Rastreamento</h3>
+                    <div class="col-md-12">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="cod_rastreamento" maxlength="50" placeholder="AC33041810XBR">
+                            <label for="cod_rastreamento" class="form-label">Código de Rastreamento</label>
                         </div>
                     </div>
                 </div>
@@ -88,21 +97,21 @@ $dadosOption = array(
                             <div class="col-md-7">
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control" name="conteudo[1][name]" id="conteudo_1" placeholder="Apple iPhone 14 Pro Max (256 GB)" maxlength="160" required>
-                                    <label for="conteudo_1">Conteúdo</label>
+                                    <label for="conteudo_1">Conteúdo*</label>
                                     <div class="invalid-feedback">Informe o conteúdo da declaração.</div>
                                 </div>
                             </div>
                             <div class="col-5 col-md-2">
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control quantidade" name="conteudo[1][quantidade]" id="quantidade_1" placeholder="8" required>
-                                    <label for="quantidade_1">Quant.</label>
+                                    <label for="quantidade_1">Quant.*</label>
                                     <div class="invalid-feedback">Informe a quantidade do conteúdo.</div>
                                 </div>
                             </div>
                             <div class="col-5 col-md-2">
                                 <div class="form-floating">
                                     <input type="number" class="form-control" name="conteudo[1][valor]" id="valor_1" placeholder="10800,00" min="0.00" step="0.01" required>
-                                    <label for="valor_1">Valor</label>
+                                    <label for="valor_1">Valor*</label>
                                     <div class="invalid-feedback">Informe o valor do conteúdo.</div>
                                 </div>
                             </div>
@@ -125,7 +134,7 @@ $dadosOption = array(
 </div>
 
 <p class="text-muted text-center">
-        <a href="https://github.com/LucasHayashi" class="link-secondary text-decoration-none p-3" target="_blank">2023 - Lucas Hayashi</a>
-    </p>
+    <a href="https://github.com/LucasHayashi" class="link-secondary text-decoration-none p-3" target="_blank"><?= date('Y') ?> - Lucas Hayashi</a>
+</p>
 
 <?php include_once("layouts/footer.php") ?>

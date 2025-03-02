@@ -31,11 +31,17 @@ $monthNum = $date->format("m");
 $dayNum = $date->format("d");
 $yearNum = $date->format("Y");
 
+$cod_rastreamento = $data['cod_rastreamento'];
+
 $monthNameInPortuguese = nomeDoMes(intval($monthNum));
 
 $dompdf = new Dompdf();
 
-$html = "<div><h2>DECLARAÇÃO DE CONTEÚDO</h2></div>";
+$html = "<div><h2>DECLARAÇÃO DE CONTEÚDO</h2>";
+if (!empty($cod_rastreamento)) {
+    $html .= "<h3>Codigo de rastreamento: {$cod_rastreamento}</h3>";
+}
+$html .= "</div>";
 
 $dadosTable = new Table("dados");
 $dadosTable->startRowHeader();
@@ -84,10 +90,10 @@ foreach ($data['conteudo'] as $key => $value) {
     $conteudoTable->addTableData($countItem, 1, 'center');
     $conteudoTable->addTableData($value['name'], 7);
     $conteudoTable->addTableData($value['quantidade'], 1, 'center');
-    $conteudoTable->addTableData($value['valor'],1, 'center');
+    $conteudoTable->addTableData($value['valor'], 1, 'center');
     $conteudoTable->closeRowBody();
-    $quantidade_total+=$value['quantidade'];
-    $valor_total+=$value['valor'];
+    $quantidade_total += $value['quantidade'];
+    $valor_total += $value['valor'];
 }
 $qtdRows = 15 - (count($data['conteudo']));
 $emptyRowsHtml = Table::createEmptyRows($qtdRows, 4, [1, 7, 1, 1]);
@@ -116,5 +122,4 @@ $dompdf->setPaper("A4");
 
 $dompdf->render();
 
-$dompdf->stream('declaracao_de_conteudo_'.date("dmYHis"), ['Attachment' => 0]);
-?>
+$dompdf->stream('declaracao_de_conteudo_' . date("dmYHis"), ['Attachment' => 0]);

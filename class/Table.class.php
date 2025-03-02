@@ -111,6 +111,14 @@ class Table
                         margin: 0;
                         padding: 0;
                     }
+
+                    h3 {
+                        font-size: 16px;
+                        text-align: center;
+                        text-decoration: underline;
+                        margin: 10px 0 0 0;
+                        padding: 0;
+                    }
                     
                     #dados {
                         font-weight: bold;
@@ -128,5 +136,3 @@ class Table
         return $html;
     }
 }
-
-?>
